@@ -43,6 +43,20 @@ import qualified System.IO as IO
 
 
 
+class
+  ( IOEffectFix t
+  , IOEffectFile t
+  , IOEffectHandle t
+  , IOEffectTerminal t
+  , IOEffectShowHandle t
+  , IOEffectBinary t
+  , IOEffectTemp t
+  , IOEffectEncoding t
+  , IOEffectNewline t
+  ) => IOEffect t
+
+
+
 class IOEffectFix t where
   fixIO :: (a -> t a) -> t a
 
