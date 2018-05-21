@@ -1,0 +1,54 @@
+name:           mock-io
+version:        0.0.0.0
+description:    Please see the README on GitHub at <https://github.com/nbloomf/mock-io#readme>
+homepage:       https://github.com/nbloomf/mock-io#readme
+bug-reports:    https://github.com/nbloomf/mock-io/issues
+author:         Nathan Bloomfield
+maintainer:     nbloomf@gmail.com
+copyright:      2018 Automattic, Inc.
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/nbloomf/mock-io
+
+library
+  default-language: Haskell2010
+  hs-source-dirs: src
+  build-depends:
+      base >=4.7 && <5
+  exposed-modules:
+      System.IO.Effect
+
+
+executable mock-io-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , mock-io
+  other-modules:
+      Paths_mock_io
+  default-language: Haskell2010
+
+test-suite mock-io-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , mock-io
+  other-modules:
+      Paths_mock_io
+  default-language: Haskell2010
