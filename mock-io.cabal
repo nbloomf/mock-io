@@ -24,9 +24,11 @@ library
   hs-source-dirs: src
   build-depends:
       base >=4.7 && <5
+
+    , time >= 1.8 && <2
   exposed-modules:
-      System.IO.Effect
-    , System.IO.Effect.Class
+      System.IO.Effect.Class
+    , Data.Time.Clock.System.Effect.Class
 
 
 executable mock-io-exe
