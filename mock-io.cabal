@@ -26,6 +26,7 @@ library
       base >=4.7 && <5
   exposed-modules:
       System.IO.Effect
+    , System.IO.Effect.Class
 
 
 executable mock-io-exe
